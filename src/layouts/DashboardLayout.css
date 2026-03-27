@@ -1,0 +1,22 @@
+.dashboard-layout {
+    display: flex;
+    height: 100vh;
+    background-color: var(--background-color);
+}
+
+.main-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 250px;
+    /* Matches sidebar width */
+    height: 100vh;
+    overflow: hidden;
+}
+
+.page-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    background-color: var(--background-color);
+}

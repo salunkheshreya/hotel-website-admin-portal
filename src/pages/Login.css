@@ -1,0 +1,28 @@
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--background-color);
+}
+
+.login-card {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    width: 24rem;
+}
+
+.login-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-center: center;
+    color: var(--text-primary);
+}
+
+.login-btn {
+    width: 100%;
+    justify-content: center;
+}

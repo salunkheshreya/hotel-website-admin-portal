@@ -1,0 +1,8 @@
+/* Customers.css */
+.customers-container {
+    padding: 0;
+}
+
+/* Reuse existing table styles from Rooms.css/global styles if possible, 
+   but defining specific ones here just in case specific tweaks are needed. 
+   Ideally, we should rely on the shared classes visible in Rooms.css */

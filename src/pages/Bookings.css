@@ -1,0 +1,48 @@
+/* Bookings specific styles (inherits most from Rooms.css) */
+.booking-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.modal-content-lg {
+    width: 32rem;
+    /* Larger modal for details */
+}
+
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.details-close-btn {
+    color: var(--text-secondary);
+}
+
+.details-close-btn:hover {
+    color: var(--text-primary);
+}
+
+.details-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.details-label {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.details-value {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.text-green {
+    color: var(--success-color);
+}

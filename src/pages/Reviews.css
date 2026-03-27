@@ -1,0 +1,11 @@
+/* Reviews.css */
+.reviews-container {
+    padding: 0;
+}
+
+.star-rating {
+    color: #f59e0b;
+    /* Amber 500 */
+    display: flex;
+    gap: 2px;
+}

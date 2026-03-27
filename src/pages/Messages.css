@@ -1,0 +1,133 @@
+.messages-container {
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+}
+
+.messages-loading,
+.messages-error,
+.no-messages {
+    text-align: center;
+    padding: 40px;
+    font-size: 16px;
+    color: #666;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.messages-error {
+    color: #dc2626;
+    background: #fef2f2;
+}
+
+.messages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.message-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #e5e7eb;
+}
+
+.message-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: #111827;
+}
+
+.user-icon {
+    color: #3b82f6;
+    background: #eff6ff;
+    padding: 4px;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+}
+
+.date-info {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.date-icon {
+    color: #9ca3af;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.contact-info .icon {
+    color: #6b7280;
+}
+
+.contact-info a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.message-body h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.message-body p {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.5;
+    background: #f9fafb;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
