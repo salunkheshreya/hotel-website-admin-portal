@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Eye, Search, CheckCircle, XCircle, Clock, DollarSign } from 'lucide-react';
+import config from '../config';
 import './Rooms.css'; // Reuse table styles
 import './Bookings.css';
 
@@ -14,7 +15,7 @@ const Bookings = () => {
 
     const fetchBookings = async () => {
         try {
-            const response = await fetch('http://localhost/hotel-website/get_bookings.php');
+            const response = await fetch(`${config.API_BASE_URL}/get_bookings.php`);
             const data = await response.json();
             if (data.status === 'success') {
                 setBookings(data.bookings);
@@ -32,7 +33,9 @@ const Bookings = () => {
 
     const filteredBookings = bookings.filter(booking =>
         (booking.guest || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (booking.id || '').toLowerCase().includes(searchTerm.toLowerCase())
+        (booking.id || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (booking.hotel_name || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (booking.location || '').toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     const getStatusIcon = (status) => {
@@ -83,6 +86,11 @@ const Bookings = () => {
                     <table className="data-table">
                         <thead>
                             <tr>
+                                <th>Hotel Name</th>
+                                <th>Location</th>
+                                <th>Payment Done</th>
+                                <th>Remaining Payment</th>
+                                <th>Total Stay Price</th>
                                 <th>Booking ID</th>
                                 <th>Guest Name</th>
                                 <th>Room</th>
@@ -95,6 +103,11 @@ const Bookings = () => {
                         <tbody>
                             {filteredBookings.map((booking) => (
                                 <tr key={booking.id}>
+                                     <td>{booking.hotel_name}</td>
+                                    <td>{booking.location}</td>
+                                    <td className="text-green" style={{ fontWeight: 600 }}>₹{Number(booking.payment_done || 0).toLocaleString()}</td>
+                                    <td className="text-orange" style={{ fontWeight: 600 }}>₹{Number(booking.remaining_payment || 0).toLocaleString()}</td>
+                                    <td style={{ fontWeight: 600 }}>₹{Number(booking.amount || 0).toLocaleString()}</td>
                                     <td style={{ fontWeight: 500 }}>{booking.id}</td>
                                     <td>{booking.guest}</td>
                                     <td>{booking.room}</td>

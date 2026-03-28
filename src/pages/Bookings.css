@@ -43,6 +43,20 @@
     color: var(--text-primary);
 }
 
+.data-table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.data-table {
+    min-width: 1200px; /* Force minimum width to ensure all 11 columns are readable */
+}
+
 .text-green {
-    color: var(--success-color);
+    color: #10b981;
+}
+
+.text-orange {
+    color: #f59e0b;
 }

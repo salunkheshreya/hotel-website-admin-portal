@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { User, Mail, Shield, Trash2, Edit, Plus, Search, X } from 'lucide-react';
-import './Rooms.css'; // Reuse table styles
+import config from '../config';
 
 const Users = () => {
     const [users, setUsers] = useState([]);
@@ -15,7 +13,7 @@ const Users = () => {
 
     const fetchUsers = async () => {
         try {
-            const response = await fetch('http://localhost/hotel-website/admin_api.php');
+            const response = await fetch(`${config.API_BASE_URL}/admin_api.php`);
             const data = await response.json();
             if (data.status === 'success') {
                 setUsers(data.admins);
@@ -37,7 +35,7 @@ const Users = () => {
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this user?')) {
             try {
-                const response = await fetch('http://localhost/hotel-website/admin_api.php', {
+                const response = await fetch(`${config.API_BASE_URL}/admin_api.php`, {
                     method: 'DELETE',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ id })
@@ -72,7 +70,7 @@ const Users = () => {
         try {
             if (isEditing) {
                 // UPDATE user
-                const response = await fetch('http://localhost/hotel-website/admin_api.php', {
+                const response = await fetch(`${config.API_BASE_URL}/admin_api.php`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(currentUser) 
@@ -86,7 +84,7 @@ const Users = () => {
                 }
             } else {
                 // CREATE user
-                const response = await fetch('http://localhost/hotel-website/admin_api.php', {
+                const response = await fetch(`${config.API_BASE_URL}/admin_api.php`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(currentUser) 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Calendar, User } from 'lucide-react';
+import config from '../config';
 import './Messages.css';
 
 const Messages = () => {
@@ -13,7 +14,7 @@ const Messages = () => {
 
     const fetchMessages = async () => {
         try {
-            const response = await fetch('http://localhost/hotel-website/get_messages.php');
+            const response = await fetch(`${config.API_BASE_URL}/get_messages.php`);
             const data = await response.json();
             if (data.status === 'success') {
                 setMessages(data.data);

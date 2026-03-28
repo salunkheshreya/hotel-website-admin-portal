@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { DollarSign, Calendar, Users, Briefcase } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import StatsCard from '../components/StatsCard';
+import config from '../config';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -17,7 +18,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchDashboardData = async () => {
             try {
-                const response = await fetch('http://localhost/hotel-website/get_dashboard_stats.php');
+                const response = await fetch(`${config.API_BASE_URL}/get_dashboard_stats.php`);
                 const result = await response.json();
                 if (result.status === 'success') {
                     setStats(result.stats);
@@ -41,6 +42,7 @@ const Dashboard = () => {
                 <StatsCard title="Bookings" value={stats.bookingsCount} icon={<Calendar />} color="bg-blue-500" />
                 <StatsCard title="Total Guests" value={stats.totalGuests} icon={<Users />} color="bg-purple-500" />
                 <StatsCard title="Occupancy Rate" value={stats.occupancyRate} icon={<Briefcase />} color="bg-orange-500" />
+                <StatsCard title="Total Payments" value={`₹${Number(stats.totalPayments).toLocaleString()}`} icon={<DollarSign />} color="bg-indigo-500" />
             </div>
 
             <div className="charts-grid">
